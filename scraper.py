@@ -1,9 +1,5 @@
 ##########################
-# Be gentle. 2 days ago i had never programed with python before
-#
-# this program scrapes the freereg.org.uk geneology site for all
-#    entries in any combination of surname, recordtype & county
-#
+# zygo
 ##########################
 
 import scraperwiki
@@ -61,9 +57,9 @@ for recordtype in recordtypes:
 
 
         for county in countys:
-            searchurl = baseurl + "Search.pl?RecordType=" + recordtype + "&Surname=" + surname + "&Forename=" + forename + "&Action=Search&County=" + "&County=".join(str(x) for x in county)
+            searchurl = baseurl + "Search.pl?RecordType=" + recordtype + "&Surname=" + surname + "&Action=Search&County=" + "&County=".join(str(x) for x in county)
             countyonlystr = "".join(str(x) for x in county)
-            searchdata = {'SurnameRecordtypeCounty': (forename + surname + recordtype + countyonlystr)}
+            searchdata = {'SurnameRecordtypeCounty': (surname + recordtype + countyonlystr)}
             if searchdata in presearches and skipsearches:
                 myskips = myskips + 1
                 print(myskips, " Skipped ", surname, recordtype, county)
